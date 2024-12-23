@@ -6,14 +6,6 @@ MIN_PLAYER = "X"
 
 
 def is_terminal(grid):
-    is_grid_full = True
-    for cell in grid:
-        if cell != MAX_PLAYER and cell != MIN_PLAYER:
-            is_grid_full = False
-            break
-    if is_grid_full:
-        return 0
-
     winning_positions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], 
                          [0, 3, 6], [1, 4, 7], [2, 5, 8], 
                          [0, 4, 8], [2, 4, 6]]
@@ -30,6 +22,14 @@ def is_terminal(grid):
                 if winner == MAX_PLAYER:
                     return 1
                 return -1
+    is_grid_full = True
+    for cell in grid:
+        if cell != MAX_PLAYER and cell != MIN_PLAYER:
+            is_grid_full = False
+            break
+    if is_grid_full:
+        return 0
+
 
 def minimax(grid, is_maximising):
     score = is_terminal(grid)
