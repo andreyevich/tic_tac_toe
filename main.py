@@ -1,4 +1,6 @@
+#!/opt/homebrew/bin/python3
 import random
+import minimax
 
 grid = []
 
@@ -95,7 +97,7 @@ while True:
     if is_grid_full():
         break
 
-    # computer_move = get_computer_move()
-    # grid[computer_move] = "O"
-    # print("The computer moved...")
-    # running = not did_player_win("O")
+    computer_move = minimax.best_move(grid)
+    grid[computer_move] = "O"
+    print("The computer moved...")
+    running = not did_player_win("O")
